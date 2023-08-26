@@ -8,13 +8,18 @@ services:
       - 15432:15432
     environment:
       - CUBEJS_DEV_MODE=true
+      - CUBEJS_API_SECRET=testing_value_alan
     depends_on:
       - tenant1
+      - tenant2
     volumes:
       - ./cube_conf:/cube/conf
+# Default port for postgre is 5432, hostname is service name
   tenant1:
     image: bitnami/postgresql:latest
-    ports:
-      - 5432:5432
+    environment:
+      - POSTGRESQL_PASSWORD=password123
+  tenant2:
+    image: bitnami/postgresql:latest
     environment:
       - POSTGRESQL_PASSWORD=password123
