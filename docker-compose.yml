@@ -1,0 +1,20 @@
+version: "2.2"
+ 
+services:
+  cube:
+    image: cubejs/cube:latest
+    ports:
+      - 4000:4000
+      - 15432:15432
+    environment:
+      - CUBEJS_DEV_MODE=true
+    depends_on:
+      - tenant1
+    volumes:
+      - ./cube_conf:/cube/conf
+  tenant1:
+    image: bitnami/postgresql:latest
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_PASSWORD=password123
