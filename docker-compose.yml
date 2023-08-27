@@ -17,9 +17,17 @@ services:
 # Default port for postgre is 5432, hostname is service name
   tenant1:
     image: bitnami/postgresql:latest
+    ports:
+      - 5432:5432
     environment:
       - POSTGRESQL_PASSWORD=password123
+    volumes:
+      - ./example_data:/example_data
+      - ./init_scripts:/docker-entrypoint-initdb.d
   tenant2:
     image: bitnami/postgresql:latest
     environment:
       - POSTGRESQL_PASSWORD=password123
+    volumes:
+      - ./example_data:/example_data
+      - ./init_scripts:/docker-entrypoint-initdb.d
