@@ -10,12 +10,12 @@ services:
       - CUBEJS_DEV_MODE=true
       - CUBEJS_API_SECRET=example_api_secret
     depends_on:
-      - tenant1
-      - tenant2
+      - tenant_1_1
+      - tenant_2_1
     volumes:
       - ./cube_conf:/cube/conf
 # Default port for postgre is 5432, hostname is service name
-  tenant1:
+  tenant_1_1:
     image: bitnami/postgresql:latest
     ports:
       - 5432:5432
@@ -24,7 +24,7 @@ services:
     volumes:
       - ./example_data:/example_data
       - ./init_scripts:/docker-entrypoint-initdb.d
-  tenant2:
+  tenant_2_1:
     image: bitnami/postgresql:latest
     environment:
       - POSTGRESQL_PASSWORD=password123
