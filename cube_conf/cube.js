@@ -19,7 +19,7 @@ module.exports = {
       return {
         type: "postgres",
         database: "postgres",
-        host: `tenant_1_1`,
+        host: `tenant_${securityContext.appId}_${securityContext.userId}`,
         user: "postgres",
         password: "password123",
       };
@@ -28,7 +28,7 @@ module.exports = {
       return {
         type: "postgres",
         database: "postgres",
-        host: `tenant_${securityContext.appId}_${securityContext.userId}`,
+        host: `tenant_1_1`,
         user: "postgres",
         password: "password123",
       };
