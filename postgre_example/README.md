@@ -111,4 +111,6 @@ curl -H "Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2OTMzNTQ
   -> return result for tenant_1_1
   ```
 
+As you can see the above code is trying to access appId 20 which doesn't exist, therefore it will automatically return result for appId 1, which is the default value of cube that i set in cube.js file.
+
 And there you have it! You've successfully tested multi-tenancy in CUBE JS.
