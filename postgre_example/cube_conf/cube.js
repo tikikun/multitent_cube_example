@@ -14,7 +14,7 @@ module.exports = {
     }
   },
   driverFactory: ({ securityContext }) => {
-    if (securityContext === null) {
+    if (securityContext) {
       // handle the case without context
       return {
         type: "postgres",
